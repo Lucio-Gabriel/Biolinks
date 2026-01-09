@@ -39,18 +39,17 @@
                         <button>⬆</button>
                     </form>
                 @endunless
+                    <form 
+                        action="{{ route('links.destroy', $link) }}" 
+                        method="post"
+                        onsubmit="return confirm('Tem certeza?')"
+                    >
+                        @csrf
+                        @method('DELETE')
 
-                <form 
-                    action="{{ route('links.destroy', $link) }}" 
-                    method="post"
-                    onsubmit="return confirm('Tem certeza?')"
-                >
-                    @csrf
-                    @method('DELETE')
+                        <button>deletar</button>
 
-                    <button>deletar</button>
-
-                </form>
+                    </form>
             </li>
         @endforeach
     </ul>
